@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="ecinternet_sage300taxrules_txclass" resource="default" engine="innodb" comment="TXCLASS">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id" />
+        <column xsi:type="int" name="store_id" padding="5" unsigned="true" nullable="true" identity="false" default="0" comment="Store Id" />
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At" />
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At" />
+        <column xsi:type="varchar" name="AUTHORITY" nullable="false" length="12" />
+        <column xsi:type="smallint" name="CLASSTYPE" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="smallint" name="CLASSAXIS" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="smallint" name="CLASS" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="decimal" name="AUDTDATE" scale="0" precision="9" unsigned="false" nullable="true" />
+        <column xsi:type="decimal" name="AUDTTIME" scale="0" precision="9" unsigned="false" nullable="true" />
+        <column xsi:type="varchar" name="AUDTUSER" nullable="true" length="8" />
+        <column xsi:type="varchar" name="AUDTORG" nullable="true" length="6" />
+        <column xsi:type="smallint" name="EXEMPT" padding="6" unsigned="true" nullable="false" identity="false" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ECINTERNET_SAGE300TAXRULES_TXCLASS_AUTHORITY_CLASSTYPE_CLASSAXIS_CLASS">
+            <column name="AUTHORITY" />
+            <column name="CLASSTYPE" />
+            <column name="CLASSAXIS" />
+            <column name="CLASS" />
+        </constraint>
+    </table>
+    <table name="ecinternet_sage300taxrules_txgrp" resource="default" engine="innodb" comment="TXGRP">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id" />
+        <column xsi:type="int" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store Id" />
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At" />
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At" />
+        <column xsi:type="varchar" name="GROUPID" nullable="false" length="12" />
+        <column xsi:type="smallint" name="TTYPE" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="decimal" name="AUDTDATE" scale="0" precision="9" unsigned="true" nullable="false" />
+        <column xsi:type="decimal" name="AUDTTIME" scale="0" precision="9" unsigned="true" nullable="false" />
+        <column xsi:type="varchar" name="AUDTUSER" nullable="true" length="8" />
+        <column xsi:type="varchar" name="AUDTORG" nullable="true" length="6" />
+        <column xsi:type="varchar" name="AUTHORITY1" nullable="false" length="12" />
+        <column xsi:type="varchar" name="AUTHORITY2" nullable="false" length="12" />
+        <column xsi:type="varchar" name="AUTHORITY3" nullable="false" length="12" />
+        <column xsi:type="varchar" name="AUTHORITY4" nullable="false" length="12" />
+        <column xsi:type="varchar" name="AUTHORITY5" nullable="false" length="12" />
+        <column xsi:type="smallint" name="CALCMETHOD" padding="6" unsigned="true" nullable="false" identity="false" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ECINTERNET_SAGE300TAXRULES_GROUPID_TTYPE">
+            <column name="GROUPID" />
+            <column name="TTYPE" />
+        </constraint>
+    </table>
+    <table name="ecinternet_sage300taxrules_txrate" resource="default" engine="innodb" comment="TXRATE">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id" />
+        <column xsi:type="int" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store Id" />
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At" />
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At" />
+        <column xsi:type="varchar" name="AUTHORITY" nullable="false" length="12" />
+        <column xsi:type="smallint" name="TTYPE" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="smallint" name="BUYERCLASS" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="decimal" name="AUDTDATE" scale="0" precision="9" unsigned="true" nullable="false" />
+        <column xsi:type="decimal" name="AUDTTIME" scale="0" precision="9" unsigned="true" nullable="false" />
+        <column xsi:type="varchar" name="AUDTUSER" nullable="true" length="8" />
+        <column xsi:type="varchar" name="AUDTORG" nullable="true" length="6" />
+        <column xsi:type="decimal" name="ITEMRATE1" scale="5" precision="15" unsigned="false" nullable="false" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ECINTERNET_SAGE300TAXRULES_TXRATE_AUTHORITY_TTYPE_BUYERCLASS">
+            <column name="AUTHORITY" />
+            <column name="TTYPE" />
+            <column name="BUYERCLASS" />
+        </constraint>
+    </table>
+    <table name="ecinternet_sage300taxrules_txstated" resource="default" engine="innodb" comment="TXSTATED">
+        <column xsi:type="int" name="entity_id" padding="10" unsigned="true" nullable="false" identity="true" comment="Entity Id" />
+        <column xsi:type="int" name="store_id" padding="5" unsigned="true" nullable="false" identity="false" default="0" comment="Store Id" />
+        <column xsi:type="timestamp" name="created_at" on_update="false" nullable="false" default="CURRENT_TIMESTAMP" comment="Created At" />
+        <column xsi:type="timestamp" name="updated_at" on_update="true" nullable="false" default="CURRENT_TIMESTAMP" comment="Updated At" />
+        <column xsi:type="varchar" name="GROUPID" nullable="false" length="12" />
+        <column xsi:type="smallint" name="TTYPE" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="int" name="VERSION" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="smallint" name="TXAUTHNUM" padding="6" unsigned="true" nullable="false" identity="false" />
+        <column xsi:type="decimal" name="AUDTDATE" scale="0" precision="9" unsigned="true" nullable="false" />
+        <column xsi:type="decimal" name="AUDTTIME" scale="0" precision="9" unsigned="true" nullable="false" />
+        <column xsi:type="varchar" name="AUDTUSER" nullable="true" length="8" />
+        <column xsi:type="varchar" name="AUDTORG" nullable="true" length="6" />
+        <column xsi:type="varchar" name="AUTHORITY" nullable="false" length="12" />
+        <column xsi:type="decimal" name="TXRATE0101" scale="5" precision="15" unsigned="false" nullable="false" />
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="entity_id" />
+        </constraint>
+        <constraint xsi:type="unique" referenceId="ECINTERNET_SAGE300TAXRULES_TXSTATED_GROUPID_TTYPE_VERSION_TXAUTHNUM">
+            <column name="GROUPID" />
+            <column name="TTYPE" />
+            <column name="VERSION" />
+            <column name="TXAUTHNUM" />
+        </constraint>
+    </table>
+</schema>

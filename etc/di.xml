@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+	<!-- API interfaces -->
+	<preference for="ECInternet\Sage300TaxRules\Api\TxclassRepositoryInterface"
+	            type="ECInternet\Sage300TaxRules\Model\TxclassRepository" />
+	<preference for="ECInternet\Sage300TaxRules\Api\TxgrpRepositoryInterface"
+	            type="ECInternet\Sage300TaxRules\Model\TxgrpRepository" />
+	<preference for="ECInternet\Sage300TaxRules\Api\TxrateRepositoryInterface"
+	            type="ECInternet\Sage300TaxRules\Model\TxrateRepository" />
+	<preference for="ECInternet\Sage300TaxRules\Api\TxstatedRepositoryInterface"
+	            type="ECInternet\Sage300TaxRules\Model\TxstatedRepository" />
+
+	<!-- API data interfaces -->
+	<preference for="ECInternet\Sage300TaxRules\Api\Data\TxclassInterface"
+	            type="ECInternet\Sage300TaxRules\Model\Data\Txclass" />
+	<preference for="ECInternet\Sage300TaxRules\Api\Data\TxgrpInterface"
+	            type="ECInternet\Sage300TaxRules\Model\Data\Txgrp" />
+	<preference for="ECInternet\Sage300TaxRules\Api\Data\TxrateInterface"
+	            type="ECInternet\Sage300TaxRules\Model\Data\Txrate" />
+	<preference for="ECInternet\Sage300TaxRules\Api\Data\TxstatedInterface"
+	            type="ECInternet\Sage300TaxRules\Model\Data\Txstated" />
+
+	<!-- Override tax calculation logic -->
+	<preference for="Magento\Tax\Model\Sales\Total\Quote\Tax"
+	            type="ECInternet\Sage300TaxRules\Model\Sales\Total\Quote\Tax" />
+
+	<!-- Custom Logger -->
+	<type name="ECInternet\Sage300TaxRules\Logger\Logger">
+		<arguments>
+			<argument name="name" xsi:type="string">Sage300TaxRules</argument>
+			<argument name="handlers" xsi:type="array">
+				<item name="system" xsi:type="object">ECInternet\Sage300TaxRules\Logger\Handler</item>
+			</argument>
+		</arguments>
+	</type>
+</config>
