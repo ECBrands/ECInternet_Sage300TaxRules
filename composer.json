@@ -1,5 +1,5 @@
 {
-	"name": "ecinternet/sage-300-tax-rules",
+	"name": "ecinternet/sage300taxrules",
 	"description": "EC Internet Sage 300 Tax Rules",
 	"require": {
 		"php": ">=7.4.0"
